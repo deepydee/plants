@@ -106,11 +106,82 @@ body {
   text-decoration: none;
   line-height: 50px;
   color: var(--links-nav);
+  transition: all 0.5s ease-out;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link:focus {
   color: var(--accent-orange);
 }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-welcome {
+  min-height: 532px;
+  padding-bottom: 94px;
+  line-height: 35px;
+}
+
+.section-welcome > .subsection:first-child {
+  background: url("../img/leafs.png") no-repeat;
+  background-size: contain;
+}
+
+.subsection {
+  width: 50%;
+}
+
+.section-title {
+  font-family: 'Inika', sans-serif;
+  font-size: 40px;
+  color: var(--accent-green);
+}
+
+.main-title {
+  margin-bottom: 42px;
+  font-family: 'Inter', sans-serif;
+  font-size: 45px;
+  line-height: 50px;
+  color: var(--accent-gray);
+  font-weight: bold;
+}
+
+.main-title span {
+  color: var(--accent-green);
+}
+
+.button {
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 14px 27px;
+  border: 2px solid var(--accent-orange);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  transition: 0.5s ease;
+  background-color: var(--accent-orange);
+  color: #fff;
+}
+
+.button-welcome {
+  margin-top: 48px;
+  border-radius: 10px;
+}
+
+
 
 .footer-container {
   display: flex;
