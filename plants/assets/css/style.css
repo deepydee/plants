@@ -66,3 +66,44 @@ body {
   color: var(--text-color);
   background-color: #fff;
 }
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: 50px;
+  padding: 0 108px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 134px;
+  background-color: var(--bg-section);
+  font-family: 'Inika', sans-serif;
+  font-size: 16px;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  font-weight: normal;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0 23px;
+  text-decoration: none;
+  line-height: 50px;
+  color: var(--links-nav);
+}
+
+.nav-link:hover {
+  color: var(--accent-orange);
+}
