@@ -68,7 +68,7 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 100%;
   margin: 0 auto;
   min-height: 50px;
   padding: 0 108px;
@@ -110,4 +110,36 @@ body {
 
 .nav-link:hover {
   color: var(--accent-orange);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  color: var(--links-nav);
+  background-color: #fff;
+}
+
+.footer-container > a {
+  color: var(--links-nav);
+  text-decoration: none;
+}
+
+.footer-copy > * {
+  margin: 0;
+  padding: 0;
+  margin-right: 20px;
+}
+
+.footer-copy > *:last-child {
+  margin-right: 0;
+}
+
+.social-link {
+  margin-right: 20px;
+}
+
+.social-link:last-child {
+  margin-right: 0;
 }
