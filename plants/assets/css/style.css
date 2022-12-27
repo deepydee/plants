@@ -163,6 +163,8 @@ body {
 }
 
 .section-title {
+  padding: 0;
+  margin: 0;
   font-family: 'Inika', sans-serif;
   font-size: 40px;
   line-height: 52px;
@@ -261,6 +263,92 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: var(--accent-gray);
+}
+
+.section-prices .container {
+  padding-top: 40px;
+  padding-bottom: 115px;
+}
+
+.section-prices .row {
+  align-items: flex-start;
+}
+
+.section-prices .col:last-of-type {
+  flex-basis: 452px;
+  text-align: right;
+}
+
+.section-prices .section-title {
+  font-family: 'Inter', sans-serif;
+  color: #010201;
+}
+
+.section-prices .button {
+  margin-top: 38px;
+  margin-bottom: 38px;
+  padding: 12px 32px;
+  background: #fff;
+  font-family: 'Inika', sans-serif;
+  font-weight: bold;
+  color: var(--accent-orange);
+}
+
+.section-prices .section-img {
+  height: 174px;
+  background: right no-repeat url('../img/leafs-1.png');
+}
+
+.section-prices .button:hover {
+  background-color: var(--accent-orange);
+  color: #fff;
+}
+
+.price-accordion {
+  width: 332px;
+  height: 282px;
+  padding: 34px 41px;
+  margin-top: 60px;
+  border: 1px solid #e3e1d5;
+  border-radius: 20px;
+}
+
+.price-item {
+  position: relative;
+  width: 250px;
+  height: 50px;
+  padding: 16px 110px 16px 40px;
+  margin-bottom: 32px;
+  border-radius: 20px;
+  background: var(--bg-section);
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bold;
+  color: var(--links-nav);
+  cursor: pointer;
+}
+
+.price-item::after {
+  position: absolute;
+  right: 40px;
+  content: '\203A';
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 14px;
+  color: var(--accent-gray);
+  transform: rotate(90deg);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  transition: all 1s ease;
+}
+
+.price-item:hover:after {
+  background-color: var(--accent-orange);
+  color: #fff;
+  cursor: pointer;
 }
 
 .footer-container {
