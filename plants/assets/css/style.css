@@ -103,6 +103,10 @@ body {
   align-items: center;
 }
 
+.col {
+  position: relative;
+}
+
 .main-container {
   display: flex;
   flex-flow: column wrap;
@@ -229,7 +233,6 @@ body {
 
 .service-buttons {
   flex-basis: 66%;
-  /* flex-grow: 1; */
 }
 
 .card {
@@ -299,6 +302,7 @@ body {
   background: right no-repeat url('../img/leafs-1.png');
 }
 
+.section-prices .button:focus,        
 .section-prices .button:hover {
   background-color: var(--accent-orange);
   color: #fff;
@@ -311,6 +315,10 @@ body {
   margin-top: 60px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
+}
+
+.section-prices .price-accordion:focus {
+  outline: 1px solid var(--accent-orange);
 }
 
 .price-item {
@@ -335,7 +343,7 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: normal;
-  line-height: 14px;
+  line-height: 16px;
   color: var(--accent-gray);
   transform: rotate(90deg);
   width: 16px;
@@ -349,6 +357,66 @@ body {
   background-color: var(--accent-orange);
   color: #fff;
   cursor: pointer;
+}
+
+.section-contacts .container {
+  padding-top: 53px;
+  padding-bottom: 0;
+}
+
+.section-contacts .row:first-of-type {
+  justify-content: center;
+}
+
+.city-select {
+  position: relative;
+  top: -140px;
+  width: 450px;
+  height: 50px;
+  font-size: 20px;
+  color: var(--accent-gray);
+  background-color: #d6e7d2;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.city-select::after {
+  position: absolute;
+  top: 17px;
+  right: 35px;
+  content: '\203A';
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 14px;
+  color: #fff;
+  transform: rotate(90deg);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #aea1a1;
+  transition: all 1s ease;
+}
+
+.city-select select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 13px 20px;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+.contact-img {
+  position: relative;
+  bottom: -7px;
 }
 
 .footer-container {
@@ -376,10 +444,19 @@ body {
   margin-right: 0;
 }
 
-.social-link {
-  margin-right: 20px;
+.social {
+  display: flex;
+  gap: 20px;
+  list-style: none;
 }
 
-.social-link:last-child {
-  margin-right: 0;
+.social-link svg {
+  width: 32px;
+  height: 32px;
+}
+
+.social-link svg :focus,   
+.social-link svg :hover {
+  transition: all 1s ease;
+  fill: var(--accent-orange);
 }
