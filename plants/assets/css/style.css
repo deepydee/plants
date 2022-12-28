@@ -91,7 +91,7 @@ body {
 
 .container {
   margin: 0 auto;
-  padding: 94px 108px;
+  padding: 74px 108px;
   min-height: 50px;
   max-width: 1440px;
 }
@@ -115,9 +115,13 @@ body {
 
 .header-container {
   height: 134px;
-  padding: 0 108px;
+  padding: 53px 109px;
   font-family: 'Inika', sans-serif;
   font-size: 16px;
+}
+
+.header-container .row {
+  margin-top: -28px;
 }
 
 .logo-link {
@@ -132,14 +136,14 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 46px;
   list-style: none;
   font-weight: normal;
 }
 
 .nav-link {
   position: relative;
-  padding: 0 23px;
-  text-decoration: none;
+        text-decoration: none;
   line-height: 50px;
   color: var(--links-nav);
   transition: all 0.5s ease-out;
@@ -147,17 +151,21 @@ body {
 
 .nav-link:hover,
 .nav-link:focus {
+  font-weight: bold;
   color: var(--accent-orange);
 }
 
 .section-welcome {
-  min-height: 532px;
-  padding-bottom: 94px;
+  height: 532px;
   line-height: 35px;
 }
 
 .section-welcome .row {
   gap: 224px;
+}
+
+.section-welcome .col:nth-child(2) {
+  margin-top: -35px;
 }
 
 .img-welcome {
@@ -185,11 +193,15 @@ body {
 }
 
 .button {
-  font-size: 16px;
-  line-height: 20px;
-  text-transform: uppercase;
-  margin-right: 38px;
-  padding: 12px 40px;
+  width: 161px;
+  height: 50px;
+  font-family: 'Inika', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--accent-orange);
+  text-transform: none;
+  margin-right: 33px;
+  padding: 12px 30px;
   border: 1px solid var(--accent-orange);
   border-radius: 5px;
   cursor: pointer;
@@ -207,19 +219,39 @@ body {
 }
 
 .button-welcome {
-  margin-top: 48px;
-  padding: 14px 27px;
-  border: 1px solid var(--accent-orange);
+  height: 44px;
+  width: 158px;
+  margin-top: 27px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #000;
+  line-height: 20px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+  border: 2px solid var(--accent-orange);
   border-radius: 10px;
+}
+
+.section-about {
+  height: 666px;
 }
 
 .section-about .row {
   gap: 153px;
+  margin-top: 18px;
 }
 
-.section-service .container {
-  padding-top: 41px;
-  padding-bottom: 121px;
+.section-about .col:first-of-type {
+  margin-top: 20px;
+}
+
+.section-about .section-title {
+  margin-bottom: 37px;
+}
+
+.section-service {
+  height: 1300px;
 }
 
 .section-service .row {
@@ -228,7 +260,9 @@ body {
 }
 
 .section-service .row:first-of-type {
-  gap: 15px;
+  gap: 22px;
+  margin-top: -35px;
+  margin-bottom: 77px;
 }
 
 .service-buttons {
@@ -238,6 +272,8 @@ body {
 .card {
   position: relative;
   overflow: hidden;
+  width: 330px;
+  height: 450px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
 }
@@ -253,7 +289,7 @@ body {
 }
 
 .card-title {
-  margin: 10px auto;
+  margin: 6px auto;
   font-size: 20px;
   line-height: 20px;
   font-weight: bold;
@@ -261,20 +297,20 @@ body {
 }
 
 .card-description {
-  margin: 0 30px 36px;
+  margin: 10px 30px 36px;
   padding: 0;
   font-size: 16px;
   line-height: 20px;
   color: var(--accent-gray);
 }
 
-.section-prices .container {
-  padding-top: 40px;
-  padding-bottom: 115px;
+.section-prices {
+  height: 560px;
 }
 
 .section-prices .row {
   align-items: flex-start;
+  margin-top: -40px;
 }
 
 .section-prices .col:last-of-type {
@@ -290,11 +326,8 @@ body {
 .section-prices .button {
   margin-top: 38px;
   margin-bottom: 38px;
-  padding: 12px 32px;
+  font-size: 19px;
   background: #fff;
-  font-family: 'Inika', sans-serif;
-  font-weight: bold;
-  color: var(--accent-orange);
 }
 
 .section-prices .section-img {
@@ -359,18 +392,21 @@ body {
   cursor: pointer;
 }
 
-.section-contacts .container {
-  padding-top: 53px;
-  padding-bottom: 0;
+.section-contacts {
+  height: 550px;
 }
 
 .section-contacts .row:first-of-type {
   justify-content: center;
 }
 
+.section-contacts .section-title {
+  margin-top: -19px;
+}
+
 .city-select {
   position: relative;
-  top: -140px;
+  top: -193px;
   width: 450px;
   height: 50px;
   font-size: 20px;
@@ -416,17 +452,21 @@ body {
 
 .contact-img {
   position: relative;
-  bottom: -7px;
+  bottom: 59px;
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: 130px;
   padding: 0 108px;
   color: var(--links-nav);
-  background-color: #fff;
+}
+
+.footer-container .row {
+  margin-top: 24px;
+}
+
+.footer-container .row .col:nth-child(2) {
+  margin-left: 55px;
 }
 
 .footer-container > a {
@@ -437,7 +477,7 @@ body {
 .footer-copy > * {
   margin: 0;
   padding: 0;
-  margin-right: 20px;
+  margin-right: 16px;
 }
 
 .footer-copy > *:last-child {
