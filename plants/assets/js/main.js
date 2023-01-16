@@ -35,4 +35,40 @@ let evaluation = `
     - [x] плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы. (5/5)
 `;
 
-console.log(evaluation);
+// console.log(evaluation);
+
+// Get all items with class="nav-link" inside the container
+let navLinks = document.getElementsByClassName("nav-link");
+
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("nav-active");
+    console.log(current);
+    current[0].className = current[0].className.replace(" nav-active", "");
+    this.className += " nav-active";
+  });
+}
+
+// Adaptive menu
+const toggleBtn = document.querySelector('.toggle');
+const nav = document.querySelector('.navbar');
+const navList = document.querySelector('.nav-list');
+const navItems = document.querySelectorAll('.nav-item');
+
+function switchMenu() {
+  toggleBtn.classList.toggle('collapsed');
+  nav.classList.toggle('collapsed');
+  navList.classList.toggle('collapsed');
+}
+
+toggleBtn.addEventListener('click', switchMenu);
+
+function closeMenu() {
+  setTimeout(() => {
+    toggleBtn.classList.remove('collapsed');
+    nav.classList.remove('collapsed');
+    navList.classList.remove('collapsed');
+  }, 1000);  
+}
+
+navItems.forEach(el => el.addEventListener('click', closeMenu));
