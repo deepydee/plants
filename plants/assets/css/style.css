@@ -207,7 +207,7 @@ body {
   color: var(--accent-orange);
   text-transform: none;
   margin-right: 33px;
-  padding: 12px 30px;
+  padding:0;
   border: 1px solid var(--accent-orange);
   border-radius: 5px;
   cursor: pointer;
@@ -234,7 +234,7 @@ body {
   color: #000;
   line-height: 20px;
   text-transform: uppercase;
-  padding: 10px 25px;
+  padding: 0;
   border: 2px solid var(--accent-orange);
   border-radius: 10px;
 }
@@ -877,6 +877,30 @@ body {
 
   .section-service .row:first-of-type .col:first-of-type {
     flex-basis: 100%;
+  }
+}
+
+@media (min-width: 381px) and (max-width: 500px) {
+  .navbar {
+    display: none;
+    left: 100%;
+    transition: all 0.4s ease;
+  }
+
+  .toggle {
+    display: block;
+  }
+
+  .mobile-menu .nav-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    padding: 40px 0;
+    height: 100%;
+    flex-direction: column;
   }
 }
 
