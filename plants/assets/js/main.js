@@ -1,49 +1,53 @@
 let evaluation = `
-  Score: 110 / 110
-  - [x] Вёрстка валидная. (10/10)
+  Score: 85 / 85
+  - [x] 1. Вёрстка соответствует макету. Ширина экрана 768px (24/24)
+      - [x] блок <header> (2/2)
+      - [x] секция welcome (3/3)
+      - [x] секция about (4/4)
+      - [x] секция service (4/4)
+      - [x] секция prices (4/4)
+      - [x] секция contacts (4/4)
+      - [x] блок <footer> (3/3)
 
-  - [x] Вёрстка семантическая. (20/20)
-    - [x] <header>, <main>, <footer>. (3/3)
-    - [x] пять элементов <section>. (3/3)
-    - [x] только один заголовок <h1>. (3/3)
-    - [x] четыре заголовка <h2>. (3/3)
-    - [x] один элемент <nav>. (3/3)
-    - [x] два списка ul > li > a (панель навигации, ссылки на соцсети). (3/3)
-    - [x] пять кнопок <button>. (2/2)
+  - [x] 2. Вёрстка соответствует макету. Ширина экрана 380px (24/24)
+      - [x] блок <header> (2/2)
+      - [x] секция welcome (3/3)
+      - [x] секция about (4/4)
+      - [x] секция service (4/4)
+      - [x] секция prices (4/4)
+      - [x] секция contacts (4/4)
+      - [x] блок <footer> (3/3)
 
-  - [x] Вёрстка соответствует макету. (48/48)
-    - [x] блок <header>. (6/6)
-    - [x] секция welcome. (7/7)
-    - [x] секция about. (7/7)
-    - [x] секция service. (7/7)
-    - [x] секция prices. (7/7)
-    - [x] секция contacts. (7/7)
-    - [x] секция <footer>. (7/7)
+  - [x] 3. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется (15/15)
+    - [x] нет полосы прокрутки при ширине страницы от 1440рх до 380px (7/7)
+    - [x] нет полосы прокрутки при ширине страницы от 380px до 320рх (8/8)
 
-  - [x] Требования к css. (12/12)
-    - [x] для построения сетки используются флексы или гриды. (2/2)
-    - [x] при уменьшении масштаба страницы браузера вёрстка размещается по центру, а не сдвигается в сторону. (2/2)
-    - [x] фоновый цвет тянется на всю ширину страницы. (2/2)
-    - [x] иконки добавлены в формате .svg. (2/2)
-    - [x] изображения добавлены в формате .jpg или .png. (2/2)
-    - [x] есть favicon. (2/2)
-
-  - [x] Интерактивность, реализуемая через css. (20/12)
-    - [x] плавная прокрутка по якорям. (5/5)
-    - [x] cсылки в футере при нажатии на них ведут на гитхаб автора проекта и на страницу курса https://rs.school/js-stage0/. (5/5)
-    - [x] интерактивность включает в себя не только изменение внешнего вида курсора, например, при помощи свойства cursor: pointer, но и другие визуальные эффекты, например, изменение цвета фона или цвета шрифта. Если в макете указаны стили при наведении и клике, для элемента указываем эти стили. Если в макете стили не указаны, реализуете их по своему усмотрению, руководствуясь общим стилем макета. (5/5)
-    - [x] плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы. (5/5)
+  - [x] 4. На ширине экрана 380рх и меньше реализовано адаптивное меню (22/22)
+    - [x] при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка (2/2)
+    - [x] при нажатии на бургер-иконку плавно появляется адаптивное меню (4/4)
+    - [x] адаптивное меню соответствует цветовой схеме макета (4/4)
+    - [x] при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран (4/4)
+    - [x] ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям (4/4)
+    - [x] при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна (4/4)
 `;
 
-// console.log(evaluation);
+console.log(evaluation);
 
 // Get all items with class="nav-link" inside the container
 let navLinks = document.getElementsByClassName("nav-link");
+let navMobLinks = document.getElementsByClassName("mob-nav-item");
 
 for (let i = 0; i < navLinks.length; i++) {
   navLinks[i].addEventListener("click", function() {
     let current = document.getElementsByClassName("nav-active");
-    console.log(current);
+    current[0].className = current[0].className.replace(" nav-active", "");
+    this.className += " nav-active";
+  });
+}
+
+for (let i = 0; i < navMobLinks.length; i++) {
+  navMobLinks[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName("nav-active");
     current[0].className = current[0].className.replace(" nav-active", "");
     this.className += " nav-active";
   });
@@ -51,7 +55,7 @@ for (let i = 0; i < navLinks.length; i++) {
 
 // Adaptive menu
 const toggleBtn = document.querySelector('.toggle');
-const nav = document.querySelector('.navbar');
+const nav = document.querySelector('.mobile-menu');
 const navList = document.querySelector('.nav-list');
 const navItems = document.querySelectorAll('.nav-item');
 
@@ -68,7 +72,29 @@ function closeMenu() {
     toggleBtn.classList.remove('collapsed');
     nav.classList.remove('collapsed');
     navList.classList.remove('collapsed');
-  }, 1000);  
+  }, 400);  
 }
 
 navItems.forEach(el => el.addEventListener('click', closeMenu));
+
+const main = document.getElementById('main');
+main.addEventListener('click', closeMenu);
+
+// Fixed header
+// When the user scrolls the page, execute myFunction
+// window.onscroll = function() {myFunction()};
+
+// Get the header
+// let header = document.getElementById("header");
+
+// Get the offset position of the navbar
+// let sticky = header.offsetTop;
+
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+// function myFunction() {
+//   if (window.pageYOffset > sticky) {
+//     header.classList.add("sticky");
+//   } else {
+//     header.classList.remove("sticky");
+//   }
+// }

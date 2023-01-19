@@ -16,17 +16,19 @@
 </head>
 <body>
 
-  <header class="header accent-bg">
+  <header id="header" class="header accent-bg">
     <div class="container header-container">
       <div class="row">
         <div class="col">
-          <div class="logo">
-            <img src="assets/img/logo_vector.svg" alt="">
-            <a class="logo-link" href="#">Plants</a>
-          </div>
+          <a href="#" class="logo-link">
+            <div class="logo">
+              <img src="assets/img/logo_vector.svg" alt="">
+              <a class="logo-link" href="#">Plants</a>
+            </div>
+          </a>
         </div>
         <div class="col">
-          <nav class="navbar">
+          <nav id="navbar" class="navbar">
             <ul class="nav-list">
               <li class="nav-item"><a href="#welcome" class="nav-link nav-active">Home</a></li>
               <li class="nav-item"><a href="#about" class="nav-link">About us</a></li>
@@ -35,18 +37,26 @@
               <li class="nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
             </ul>
           </nav>
-        </div>
-        <div class="toggle">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-          <div class="line4"></div>
+          <div class="toggle">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+            <div class="line4"></div>
+          </div>
         </div>
       </div>
     </div>
   </header>
-
-  <main class="main">
+  <nav class="mobile-menu">
+    <ul class="nav-list">
+      <li class="nav-item mob-nav-item"><a href="#welcome" class="nav-link nav-active">Home</a></li>
+      <li class="nav-item mob-nav-item"><a href="#about" class="nav-link">About us</a></li>
+      <li class="nav-item mob-nav-item"><a href="#service" class="nav-link">Service</a></li>
+      <li class="nav-item mob-nav-item"><a href="#prices" class="nav-link">Price</a></li>
+      <li class="nav-item mob-nav-item"><a href="#contacts" class="nav-link">Contacts</a></li>
+    </ul>
+  </nav>
+  <main id="main" class="main">
     <div class="main-container">
 
       <section id="welcome" class="section-welcome accent-bg">

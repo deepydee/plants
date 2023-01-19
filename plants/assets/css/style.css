@@ -77,6 +77,7 @@ html {
 body {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   justify-content: space-between;
   min-width: 320px;
   min-height: 100vh;
@@ -261,6 +262,7 @@ body {
 
 .section-service .row {
   flex-flow: row wrap;
+  justify-content: center;
   row-gap: 55px;
   column-gap: 116px;
   margin-bottom: 55px;
@@ -509,20 +511,48 @@ body {
   fill: var(--accent-orange);
 }
 
+.mobile-menu {
+  position: fixed;
+  left: 100%;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 20px;
+  background-color: var(--bg-section);
+  transition: 0.5s;
+}
+
+.mobile-menu.collapsed {
+  left: 0;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.sticky + .main {
+  padding-top: 102px;
+}
 /** Adaptivity **/
 
 .toggle {
   display: none;
   position: relative;
-  /* top: 10px;
-  right: 10px; */
+  top: -8px;
+  right: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 24px;
-  /* margin-top: 5px; */
-  /* margin-left: auto; */
+  margin-top: 5px;
+  margin-left: auto;
   cursor: pointer;
   user-select: none;
   z-index: 15;
@@ -534,6 +564,7 @@ body {
   background: var(--accent-gray);
   margin-bottom: 6px;
   z-index: 15;
+  transition: 0.4s;
 }
 
 .toggle.collapsed .line1 {
@@ -552,6 +583,22 @@ body {
   transform: rotate(45deg) translate(-6px, -12px);
 }
 
+@media (min-width: 769px) and (max-width: 1439px) {
+  .header-container,
+  .section-welcome,
+  .section-about,
+  .section-service,
+  .section-prices,
+  .footer-container
+   {
+    height: auto;
+  }
+
+  .section-welcome .row {
+    gap: 50px;
+  }
+}
+
 @media (max-width: 768px) {
 
   .container {
@@ -567,6 +614,10 @@ body {
     padding: 35px 50px;
   }
 
+  .header-container .row {
+    margin-top: -16px;
+  }
+
   .logo-link {
     position: relative;
     top: -2px;
@@ -574,7 +625,7 @@ body {
   }
 
   .section-welcome {
-    height: 407px;
+    height: 420px;
     font-size: 16px;
     line-height: 25px;
   }
@@ -587,7 +638,6 @@ body {
     flex-direction: row-reverse;
     align-items: flex-start;
     column-gap: 42px;
-    margin-top: -13px;
   }
 
   .section-welcome .col:nth-child(2) {
@@ -674,6 +724,7 @@ body {
   }
 
   .section-service .row:first-of-type {
+    justify-content: flex-start;
     margin: 0;
     gap: 42px;
   }
@@ -683,6 +734,7 @@ body {
   }
 
   .section-service .row {
+    justify-content: space-between;
     margin-top: 39px;
   }
 
@@ -700,6 +752,10 @@ body {
 
   .section-prices .row {
     margin-top: 3px;
+  }
+
+  .section-prices .col:last-of-type {
+    flex-basis: 100%;
   }
 
   .section-prices h3.section-title {
@@ -776,40 +832,338 @@ body {
     margin: 0;
     padding: 0;
   }
- 
 
+}
+
+@media (min-width: 380px) and (max-width: 767px) {
+  .header-container,
+  .section-welcome,
+  .section-about,
+  .section-service,
+  .section-prices,
+  .footer-container
+   {
+    height: auto;
+  }
+
+  .nav-list {
+    gap: 25px;
+  }
+
+  .section-welcome .col:first-of-type {
+    display: none;
+  }
+
+  .section-about .row img {
+    top: 0;
+  }
+
+  .section-service .row:nth-child(2) {
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .service-buttons {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    column-gap: 10px;
+    row-gap: 9px;
+  }
+
+
+  .section-service .row:first-of-type .col:first-of-type {
+    flex-basis: 100%;
+  }
 }
 
 @media (max-width: 380px) {
 
   .navbar {
     display: none;
+    left: 100%;
+    transition: all 0.4s ease;
   }
 
   .toggle {
-    display: flex;
+    display: block;
   }
 
-  .navbar.collapsed {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    min-height: 525px;
-    flex-direction: column;
-    background-color: var(--bg-section);
-  }
-  
-  .nav-list.collapsed {
+  .mobile-menu .nav-list {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    gap: 25px;
     width: 100%;
+    padding: 40px 0;
     height: 100%;
     flex-direction: column;
-    padding-top: 50px;
+  }
+
+  .container {
+    max-width: 380px;
+  }
+
+  .header-container {
+    height: 96px;
+    padding: 36px 25px;
+  }
+
+  .header-container .row {
+    margin: 0;
+  }
+
+  .header-container .col {
+    flex: 1 1 100%;
+  }
+
+  .header-container .col:first-of-type {
+    flex-basis: 30%;
+  }
+
+  .section-welcome {
+    height: 300px;
+  }
+
+  .section-welcome .container {
+    padding: 24px 25px;
+  }
+
+  .section-welcome .row {
+    flex-direction: row;
+    margin: 0;
+  }
+
+  .section-welcome .row .col:first-of-type {
+    display: none;
+  }
+
+  .section-welcome .section-title {
+    font-size: 25px;
+    line-height: 35px;
+  }
+
+  .section-welcome p {
+    left: 0;
+    top: -7px;
+  }
+
+  .section-welcome .button-welcome {
+    width: 100px;
+    height: 34px;
+    padding: 0;
+    margin-top: 2px;
+    font-size: 10px;
+    line-height: 20px;
+  }
+
+  .section-about {
+    height: 516px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .section-about .container {
+    padding: 30px 25px;
+  }
+
+  .section-about .section-title {
+    margin: 0;
+    font-size: 25px;
+    line-height: 33px;
+  }
+
+  .section-service .row:first-of-type {
+    justify-content: start;
+  }
+  
+  .section-service .row:first-of-type .col:first-of-type {
+    flex-basis: 60%;
+  }
+
+  .section-service .row {
+    justify-content: center;
+    row-gap: 34px;
+  }
+  
+  .section-about .row img {
+    width: 150px;
+    top: -17px;
+  }
+
+  .section-service {
+    height: 3150px;
+  }
+
+  .section-service .container {
+    padding: 30px 25px;
+  }
+
+  .section-service .section-title {
+    font-size: 25px;
+    line-height: 32px;
+  }
+
+  .service-buttons {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    column-gap: 10px;
+    row-gap: 9px;
+  }
+
+  .service-buttons .button {
+    width: 121px;
+    height: 34px;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .section-prices {
+    height: 512px;
+  }
+
+  .section-prices .container {
+    padding: 25px 30px;
+  }
+
+  .section-prices .row {
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  .section-prices h3.section-title {
+    position: relative;
+    top: -3px;
+    left: 49px;
+    text-align: center;
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .price-accordion {
+    position: relative;
+    left: 50px;
+    width: 224px;
+    height: 235px;
+    margin-top: 35px;
+  }
+
+  .price-item {
+    position: relative;
+    left: -20px;
+    top: -7px;
+    width: 180px;
+    height: 50px;
+    padding: 16px 15px 16px 30px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .section-prices .section-img {
+    display: none;
+  }
+
+  .section-prices .col:last-of-type .section-title {
+    top: 19px;
+    margin: 0 20px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 35px;
+  }
+
+  .section-prices .col:last-of-type .button {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    top: 39px;
+    padding: 0;
+    width: 121px;
+    height: 35px;
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .section-contacts {
+    height: 445px;
+  }
+
+  .section-contacts .container {
+    padding: 25px 42px 0 42px;
+  }
+
+  .section-contacts .section-title {
+    font-size: 25px;
+    line-height: 33px;
+  }
+
+  .city-select {
+    top: -52px;
+    left: -3px;
+    width: 300px;
+    height: 50px;
+  }
+
+  .city-select::after {
+    top: 16px;
+    right: 21px;
+  }
+
+  .contact-img {
+    width: 100px;
+    left: -4px;
+    bottom: -263px;
+  }
+
+  .footer-container {
+    height: 146px;
+    padding: 22px 85px 7px 85px;
+  }
+
+  .footer-container .row {
+    top: -13px;
+  }
+
+  .social {
+    position: relative;
+    top: -13px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 379px) {
+  .header-container,
+  .section-welcome,
+  .section-about,
+  .section-service,
+  .section-prices,
+  .footer-container
+  {
+    height: auto;
+    width: auto;
+  }
+
+  .card {
+
+  }
+
+  .card img {
+    object-fit: contain;
+  }
+
+  .section-prices .col:last-of-type .section-title {
+    margin: 30px 10px;
+  }
+
+  .section-prices .col:last-of-type .button {
+    top: 0;
   }
 }
