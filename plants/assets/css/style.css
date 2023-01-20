@@ -414,50 +414,135 @@ body {
   margin-top: -19px;
 }
 
-.city-select {
+.select-box {
   position: relative;
-  top: -193px;
+  top: -72px;
+  left: 1px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
   width: 450px;
-  height: 50px;
-  font-size: 20px;
-  color: var(--accent-gray);
+}
+
+.select-box .options-container {
+  order: 1;
+  background-color: #dce9d9;
+  color: #499a18;
+  /* max-height: 0; */
+  width: 100%;
+  opacity: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+  padding: 27px 35px 31px 35px;
+}
+
+.select-box .options-container.active {
+  max-height: 234px;
+  opacity: 1;
+  overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected {
+  box-shadow: none;
+  background-color: #c1e698;
+}
+
+.select-box .options-container.active + .selected::after {
+  transform: rotateX(180deg);
+}
+
+
+.select-box .options-container::-webkit-scrollbar {
+  width: 8px;
+  background-color: #dce9d9;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+  background-color: #499a18;
+}
+
+.selected {
+  order: 0;
+  position: relative;
   background-color: #d6e7d2;
-  border: none;
+  color: #717171;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px 24px;
+  font-size: 20px;
   cursor: pointer;
 }
 
-.city-select::after {
+.selected::after {
   position: absolute;
-  top: 17px;
-  right: 35px;
-  content: '\203A';
-  text-align: center;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 14px;
-  color: #fff;
-  transform: rotate(90deg);
-  width: 16px;
   height: 16px;
-  border-radius: 50%;
-  background-color: #aea1a1;
-  transition: all 1s ease;
+  width: 16px;
+  right: 35px;
+  top: 17px;
+  content: '';
+  background: url('../svg/accordion_btn.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.4s;
 }
 
-.city-select select {
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  padding: 13px 20px;
-  margin: 0;
-  width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  cursor: inherit;
-  line-height: inherit;
-  outline: none;
+.select-box .option {
+  font-size: 16px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #d9d9d9;
+  cursor: pointer;
+}
+
+.select-box label {
+  cursor: pointer;
+}
+
+.select-box .option:hover {
+  color: #717171;
+  border-bottom: 1px solid #717171;
+}
+
+.select-box .option .radio {
+  display: none;
+}
+
+.contact-info {
+  opacity: 0;
+  position: absolute;
+  top: 27px;
+  z-index: 0;
+  width: 448px;
+  height: 214px;
+  padding: 17px 76px 32px 33px;
+  background-color: var(--bg-section);
+  border: 1px solid #000;
+  border-radius: 20px;
+  transition: all 0.4s;
+}
+
+.contact-info.visible {
+  opacity: 1;
+  z-index: 3;
+}
+
+.contact-info .contact-table {
+  font-size: 16px;
+}
+
+.contact-info .contact-table td {
+  padding: 5px;
+}
+
+.contact-info .contact-table .contact-head {
+ color: #000;
+}
+
+.contact-info .button {
+  display: block;
+  width: 122px;
+  height: 26px;
+  margin-left: 126px;
+  font-size: 10px;
+  color: #717171;
 }
 
 .contact-img {
@@ -799,8 +884,13 @@ body {
     margin-top: 0;
   }
 
-  .city-select {
-    top: -159px;
+  .select-box {
+    top: -158px;
+    left: -1px;
+  }
+
+  .contact-info {
+    top: -74px;
   }
 
   .contact-img {
@@ -1130,16 +1220,37 @@ body {
     line-height: 33px;
   }
 
-  .city-select {
-    top: -52px;
-    left: -3px;
+  .select-box {
+    top: -50px;
+    left: -1px;
     width: 300px;
-    height: 50px;
   }
 
-  .city-select::after {
-    top: 16px;
-    right: 21px;
+  .selected::after {
+    right: 23px;
+  }
+
+  .contact-info {
+    width: 282px;
+    height: 212px;
+    padding: 23px 36px;
+    top: 22px;
+    left: 10px;
+    line-height: 20px;
+  }
+
+
+  .contact-info .contact-table td {
+    padding: 0;
+    padding-top: 7px;
+  }
+
+  .contact-info .contact-table td:nth-child(2) {
+    width: 64%;
+  }
+
+  .contact-info .button {
+    margin: 15px auto;
   }
 
   .contact-img {

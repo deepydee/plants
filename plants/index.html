@@ -216,15 +216,58 @@
           </div>
 
           <div class="col">
-            <div class="city-select">
-              <select name="city" id="city">
-                <option value="City" selected disabled>City</option>
-                <option value="Canandaigua, NY">Canandaigua, NY</option>
-                <option value="New York City">New York City</option>
-                <option value="Yonkers, NY">Yonkers, NY</option>
-                <option value="Sherrill, NY">Sherrill, NY</option>
-              </select>
+            
+           
+            <div class="select-box">
+            
+              <div class="options-container">
+
+                <div class="option">
+                  <input class="radio" type="radio" name="city" id="canandaigua">
+                  <label for="canandaigua">Canandaigua, NY</label>
+                </div>
+
+                <div class="option">
+                  <input class="radio" type="radio" name="city" id="newyork">
+                  <label for="newyork">New York City</label>
+                </div>
+
+                <div class="option">
+                  <input class="radio" type="radio" name="city" id="yonkers">
+                  <label for="yonkers">Yonkers, NY</label>
+                </div>
+
+                <div class="option">
+                  <input class="radio" type="radio" name="city" id="sherrill">
+                  <label for="sherrill">Sherrill, NY</label>
+                </div>
+
+              </div>
+
+              <div class="selected">City</div>
+
             </div>
+
+            <div class="contact-info">
+              <table class="contact-table">
+                <tr>
+                  <td class="contact-head">City:</td>
+                  <td id="city-cell">Canandaigua, NY</td>
+                </tr>
+                <tr>
+                  <td class="contact-head">Phone:</td>
+                  <td id="phone-cell">+1 585 393 00001</td>
+                </tr>
+                <tr>
+                  <td class="contact-head">Office address:</td>
+                  <td id="address-cell">151 Charlotte Street</td>
+                </tr>
+                <tr>
+                  <td colspan="2"><button class="button">Call us</button></td>
+                </tr>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>

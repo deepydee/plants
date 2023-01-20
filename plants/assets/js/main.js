@@ -31,7 +31,7 @@ let evaluation = `
     - [x] при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна (4/4)
 `;
 
-console.log(evaluation);
+// console.log(evaluation);
 
 // Get all items with class="nav-link" inside the container
 let navLinks = document.getElementsByClassName("nav-link");
@@ -98,3 +98,54 @@ main.addEventListener('click', closeMenu);
 //     header.classList.remove("sticky");
 //   }
 // }
+
+// custom select
+
+const selected = document.querySelector('.selected');
+const optionsContainer = document.querySelector('.options-container');
+
+const optionsList = document.querySelectorAll('.option');
+
+const contactInfo = document.querySelector('.contact-info');
+const city = document.getElementById('city-cell');
+const phone = document.getElementById('phone-cell');
+const address = document.getElementById('address-cell');
+
+const mediaMobile = window.matchMedia('(max-width: 380px)');
+const contactImg = document.querySelector('.contact-img');
+
+const contacts = [
+  {'city': 'Yonkers, NY', 'phone': '+1 914 678 0003', 'address': '511 Warburton Ave'},
+  {'city': 'Canandaigua, NY', 'phone': '+1 585 393 0001', 'address': '151 Charlotte Street'},
+  {'city': 'Sherrill, NY', 'phone': '+1 315 908 0004', 'address': '14 WEST Noyes BLVD'},
+  {'city': 'New York City', 'phone': '+1 212 456 0002', 'address': '9 East 91st Street'},
+];
+
+selected.addEventListener('click', () => {
+  optionsContainer.classList.toggle('active');
+  contactInfo.classList.remove('visible');
+});
+
+optionsList.forEach(o => {
+  o.addEventListener('click', () => {
+    selected.innerText = o.querySelector('label').innerText;
+    o.querySelector("input").checked = true; //line that selects the radio button when the div is clicked
+    optionsContainer.classList.remove('active');
+    contactInfo.classList.add('visible');
+
+    if (selected.innerText !== 'City') {
+      selected.style.backgroundColor = '#c1e698';
+    }
+
+    let current = contacts.filter(item => item.city == selected.innerText);
+
+    city.innerText = current[0].city;
+    phone.innerText = current[0].phone;
+    address.innerText = current[0].address;
+    
+    if (mediaMobile.matches) {
+      contactImg.style.opacity = '0';
+    }
+
+  })
+});
