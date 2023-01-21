@@ -110,6 +110,7 @@ const contactInfo = document.querySelector('.contact-info');
 const city = document.getElementById('city-cell');
 const phone = document.getElementById('phone-cell');
 const address = document.getElementById('address-cell');
+const contactPhone = document.getElementById('contact-phone');
 
 const mediaMobile = window.matchMedia('(max-width: 380px)');
 const contactImg = document.querySelector('.contact-img');
@@ -142,7 +143,8 @@ optionsList.forEach(o => {
     city.innerText = current[0].city;
     phone.innerText = current[0].phone;
     address.innerText = current[0].address;
-    
+    contactPhone.setAttribute('href', 'tel:' + String(current[0].phone).replaceAll(' ', ''));
+
     if (mediaMobile.matches) {
       contactImg.style.opacity = '0';
     }

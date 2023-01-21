@@ -213,12 +213,20 @@ body {
   cursor: pointer;
 }
 
+a.button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .button:last-of-type {
   margin-right: 0;
 }
 
 .button:hover,
-.button:focus {
+.button:focus,
+a.button:hover  {
   transition: 0.5s ease;
   background-color: var(--accent-orange);
   color: #fff;
@@ -540,6 +548,7 @@ body {
   display: block;
   width: 122px;
   height: 26px;
+  line-height: 26px;
   margin-left: 126px;
   font-size: 10px;
   color: #717171;
