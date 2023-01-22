@@ -1,37 +1,24 @@
 let evaluation = `
   Score: 85 / 85
-  - [x] 1. Вёрстка соответствует макету. Ширина экрана 768px (24/24)
-      - [x] блок <header> (2/2)
-      - [x] секция welcome (3/3)
-      - [x] секция about (4/4)
-      - [x] секция service (4/4)
-      - [x] секция prices (4/4)
-      - [x] секция contacts (4/4)
-      - [x] блок <footer> (3/3)
+  - [x] 1. При нажатии на кнопки:Gargen, Lawn, Planting происходит смена фокуса на услугах в разделе service (50/50)  
+      - [x] При выборе одной услуги (нажатии одной кнопки), остальные карточки услуг принимают эффект blur, выбранная услуга остается неизменной (20/20)
+      - [x] Пользователь может нажать одновременно две кнопки услуги, тогда эта кнопка тоже принимает стиль активной и карточки с именем услуги выходят из эффекта blur. При этом пользователь не может нажать одновременно все три кнопки услуг (20/20)
+      - [x] Анимации плавного перемещения кнопок в активное состояние и карточек услуг в эффект blur (10/10)
 
-  - [x] 2. Вёрстка соответствует макету. Ширина экрана 380px (24/24)
-      - [x] блок <header> (2/2)
-      - [x] секция welcome (3/3)
-      - [x] секция about (4/4)
-      - [x] секция service (4/4)
-      - [x] секция prices (4/4)
-      - [x] секция contacts (4/4)
-      - [x] блок <footer> (3/3)
+  - [x] 2. Accordion в секции prices реализация 3-х выпадающих списков об услугах и ценах (50/50)
+      - [x] При нажатии на dropdown кнопку появляется описание тарифов цен в соответствии с макетом. Внутри реализована кнопка order, которая ведет на секцию contacts, при нажатии на нее Accordion все еще остается открытым (25/25)
+      - [x] Пользователь может самостоятельно закрыть содержимое нажав на кнопку dropup, но не может одновременно открыть все тарифы услуг, при открытии нового тарифа предыдущее автоматически закрывается (25/25)
 
-  - [x] 3. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется (15/15)
-    - [x] нет полосы прокрутки при ширине страницы от 1440рх до 380px (7/7)
-    - [x] нет полосы прокрутки при ширине страницы от 380px до 320рх (8/8)
-
-  - [x] 4. На ширине экрана 380рх и меньше реализовано адаптивное меню (22/22)
-    - [x] при ширине страницы 380рх панель навигации скрывается, появляется бургер-иконка (2/2)
-    - [x] при нажатии на бургер-иконку плавно появляется адаптивное меню (4/4)
-    - [x] адаптивное меню соответствует цветовой схеме макета (4/4)
-    - [x] при нажатии на крестик адаптивное меню плавно скрывается уезжая за экран (4/4)
-    - [x] ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям (4/4)
-    - [x] при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, также скрытие меню происходит если сделать клик вне данного окна (4/4)
+  - [x] В разделе contacts реализован select с выбором городов (25/25)
+    - [x] В зависимости от выбора пользователя появляется блок с адресом и телефоном офиса в определенном городе (15/15)
+    - [x] При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу (10/10)
 `;
 
-// console.log(evaluation);
+console.log(evaluation);
+
+/**
+ * Active menu
+ */
 
 // Get all items with class="nav-link" inside the container
 let navLinks = document.getElementsByClassName("nav-link");
@@ -53,7 +40,9 @@ for (let i = 0; i < navMobLinks.length; i++) {
   });
 }
 
-// Adaptive menu
+/**
+ * Burger Menu
+ */
 const toggleBtn = document.querySelector('.toggle');
 const nav = document.querySelector('.mobile-menu');
 const navList = document.querySelector('.nav-list');
@@ -80,6 +69,10 @@ navItems.forEach(el => el.addEventListener('click', closeMenu));
 const main = document.getElementById('main');
 main.addEventListener('click', closeMenu);
 
+/**
+ * Sticky Header
+ */
+
 // Fixed header
 // When the user scrolls the page, execute myFunction
 // window.onscroll = function() {myFunction()};
@@ -99,7 +92,9 @@ main.addEventListener('click', closeMenu);
 //   }
 // }
 
-// custom select
+/**
+ * Contact Section
+ */
 
 const selected = document.querySelector('.selected');
 const optionsContainer = document.querySelector('.options-container');
@@ -152,6 +147,10 @@ optionsList.forEach(o => {
   })
 });
 
+/**
+ * Service Buttons
+ */
+
 const serviceButtons = document.querySelector('.service-buttons');
 const services = document.querySelectorAll('.card');
 
@@ -166,7 +165,6 @@ serviceButtons.addEventListener('click', (event) => {
       cnt++;
       activeServices.push(button.dataset.service);
     }
-    console.log(cnt);
     if (cnt === 3) {
       activeServices = [];
       event.currentTarget.querySelectorAll('.active').forEach((e) => {
@@ -186,5 +184,25 @@ serviceButtons.addEventListener('click', (event) => {
   if (activeServices.length === 0) {
     services.forEach((e) => e.classList.remove('blured'));
   }
+
+});
+
+/**
+ * Price Accordion
+ */
+
+const priceAccordion = document.querySelector('.price-accordion');
+
+priceAccordion.addEventListener('click', (event) => {
+  let item = event.target.closest('.dropdown');
+  if (!item) return;
+  if (!event.currentTarget.contains(item)) return;
+
+  event.currentTarget.querySelectorAll('.price-item').forEach((e) => {
+    e.classList.remove('active');
+  }); 
+
+  item.closest('.price-item').classList.toggle('active');
+
 
 });
