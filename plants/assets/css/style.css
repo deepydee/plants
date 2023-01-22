@@ -225,11 +225,14 @@ a.button {
 }
 
 .button:hover,
-.button:focus,
 a.button:hover  {
   transition: 0.5s ease;
   background-color: var(--accent-orange);
   color: #fff;
+}
+
+.button:focus {
+  outline: auto ;
 }
 
 .button-welcome {
@@ -294,7 +297,19 @@ a.button:hover  {
   height: 450px;
   border: 1px solid #e3e1d5;
   border-radius: 20px;
-}
+  transition: 0.4s;
+ }
+
+ .card.blured::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+ }
 
 .card img {
   position: relative;
@@ -353,8 +368,8 @@ a.button:hover  {
   background: right no-repeat url('../img/leafs-1.png');
 }
 
-.section-prices .button:focus,        
-.section-prices .button:hover {
+.section-prices .button:hover,
+.button.active {
   background-color: var(--accent-orange);
   color: #fff;
 }

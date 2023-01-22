@@ -151,3 +151,40 @@ optionsList.forEach(o => {
 
   })
 });
+
+const serviceButtons = document.querySelector('.service-buttons');
+const services = document.querySelectorAll('.card');
+
+serviceButtons.addEventListener('click', (event) => {
+  let activeServices = [];
+  let cnt = 0;
+
+  event.target.classList.toggle('active');
+
+  for (let button of event.currentTarget.children) {
+    if (button.classList.contains('active')) {
+      cnt++;
+      activeServices.push(button.dataset.service);
+    }
+    console.log(cnt);
+    if (cnt === 3) {
+      activeServices = [];
+      event.currentTarget.querySelectorAll('.active').forEach((e) => {
+        e.classList.remove('active');
+      });
+    }
+  }
+
+  for (let elem of services) {
+    if (activeServices.includes(elem.dataset.service)) {
+      elem.classList.remove('blured');
+    } else {
+      elem.classList.add('blured');
+    }
+  }
+
+  if (activeServices.length === 0) {
+    services.forEach((e) => e.classList.remove('blured'));
+  }
+
+});
