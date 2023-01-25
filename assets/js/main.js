@@ -14,7 +14,7 @@ let evaluation = `
     - [x] При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу (10/10)
 `;
 
-// console.log(evaluation);
+console.log(evaluation);
 
 /**
  * Active menu
