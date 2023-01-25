@@ -14,7 +14,7 @@ let evaluation = `
     - [x] При нажатии на кнопку Call us реализован вызов по номеру, который соответствует выбранному городу (10/10)
 `;
 
-console.log(evaluation);
+// console.log(evaluation);
 
 /**
  * Active menu
@@ -198,11 +198,10 @@ priceAccordion.addEventListener('click', (event) => {
   if (!item) return;
   if (!event.currentTarget.contains(item)) return;
 
-  event.currentTarget.querySelectorAll('.price-item').forEach((e) => {
-    e.classList.remove('active');
-  }); 
-
-  item.closest('.price-item').classList.toggle('active');
-
-
+  if(item.closest('.price-item').classList.contains('active')) {
+    item.closest('.price-item').classList.remove('active');
+  } else {
+    document.querySelector('.price-item.active')?.classList.remove('active');
+    item.closest('.price-item').classList.add('active');
+  }
 });

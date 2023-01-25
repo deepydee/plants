@@ -1252,7 +1252,8 @@ a.button:hover  {
   }
 
   .section-prices {
-    height: 512px;
+    /* height: 512px; */
+    height: auto;
   }
 
   .section-prices .container {
@@ -1275,10 +1276,12 @@ a.button:hover  {
 
   .price-accordion {
     position: relative;
+    top: 0;
     left: 50px;
     width: 224px;
-    height: 235px;
+    height: auto;
     margin-top: 35px;
+    padding-bottom: 21px;
   }
 
   .price-item {
@@ -1291,6 +1294,11 @@ a.button:hover  {
     margin-bottom: 14px;
     font-size: 15px;
     line-height: 20px;
+  }
+
+
+  .price-item:last-of-type {
+    margin-bottom: 0;
   }
 
   .section-prices .section-img {
@@ -1315,6 +1323,7 @@ a.button:hover  {
     height: 35px;
     font-size: 15px;
     line-height: 20px;
+    margin-bottom: 54px;
   }
 
   .section-contacts {
